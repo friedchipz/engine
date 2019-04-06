@@ -16,6 +16,7 @@
 GameMode::GameMode() {
 	window = nullptr;
 	renderer = nullptr;
+	gameName = "Untitled Game";
 }
 
 bool GameMode::isFinished() const {
@@ -39,12 +40,9 @@ void GameMode::init() {
 	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
 		throw "could not initialize SDL subsystems";
 	}
-	window = SDL_CreateWindow("Test", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow(gameName.c_str(), SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, 0);
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    
-    // load textures
-    TextureManager::Instance().load("assets/animate.bmp", "animate", renderer);
 }
 
 void GameMode::update() {

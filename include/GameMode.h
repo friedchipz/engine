@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include <set>
+#include <string>
 #include "ECS.h"
 class GameMode {
 protected:
@@ -14,7 +15,7 @@ protected:
 	int frameTime;
 	bool finished;
 	std::set<Entity *> entities;
-
+	std::string gameName;
 protected:
 	//protected methods for the game
 	virtual void init();
