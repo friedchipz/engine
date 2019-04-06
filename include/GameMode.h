@@ -26,7 +26,7 @@ protected:
 
 public:
 	GameMode();
-	~GameMode() = default;
+	virtual ~GameMode() = default;
 	void gameLoop();
 	bool isFinished() const;
 	void registerEntity(Entity * newEntity);
